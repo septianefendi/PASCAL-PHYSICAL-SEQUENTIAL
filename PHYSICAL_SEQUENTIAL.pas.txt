@@ -1,0 +1,97 @@
+program tgs3_sb;
+uses wincrt;
+var
+   nilai:array[1..20] of string;
+   n,i,pos,pil:byte;
+   cari:string;
+   waktu:real;
+   ketemu:boolean;
+begin
+     repeat;
+     ketemu:=false;
+     writeln('         __________________________________________________');
+     writeln('          ||             TUGAS 3 SISTEM BERKAS           ||');
+     writeln('          ||_____________________________________________||');
+     writeln('          ||                                             ||');
+     writeln('          ||                DibuatOleh:                 ||');
+     writeln('          ||    ~*~  Nama        *  Septian Efendi~*~     ||');
+     writeln('          ||    ~*~  Bahasa Pemrg*  Pascal       ~*~     ||');
+     writeln('          ||                                             ||');
+     writeln('          ||                                             ||');
+     writeln('          ||_____________________________________________||');
+     writeln('          =================================================');
+     write('          Silahkantekan enter');
+     readln;
+     clrscr;
+     writeln('         __________________________________________________');
+     writeln('          ||    ORGANISASI BERKAS PHYSICAL SEQUENTIAL    ||');
+     writeln('          ||_____________________________________________||');
+     writeln('          ||                                             ||');
+     writeln('          ||              1. Input Kunci                 ||');
+     writeln('          ||              2. CariKunci                  ||');
+     writeln('          ||              3. Keluar                      ||');
+     writeln('          ||_____________________________________________||');
+     writeln('          || The Owner                                   ||');
+     writeln('          ||     FENDI :D                             ||');
+     writeln('          ||_____________________________________________||');
+     writeln('          ||                                             ||');
+     writeln('          =================================================');
+     writeln;
+     write(           'PILIH  <1,2,3>? ');readln(pil);
+     clrscr;
+
+     if (pil=1) then
+     begin
+          writeln('=======================');
+          writeln('////->INPUT KUNCI<-\\\\');
+          writeln('=======================');
+          write('berapajumlahkunci? ');readln(n);
+          writeln;
+          for i:=1 to n do
+          begin
+               write('input nilaikuncike ',i,' : ');readln(nilai[i]);
+          end;
+          writeln;
+          writeln('kunci yang andainputkan');
+          writeln('====================');
+          writeln('|No    Kunci       |');
+          writeln('====================');
+          for i:=1 to n do
+              writeln('|',i:2,nilai[i]:16,'|');
+          writeln('====================');
+          readln;
+     end
+     else if(pil=2) then
+     begin
+          writeln('=======================');
+          writeln('////->CARI KUNCI<-\\\\');
+          writeln('=======================');
+          write('input nilaikunci yang dicari : ');readln(cari);
+          for i:=1 to n do
+          begin
+               if(nilai[i]=cari) then
+               begin
+                    ketemu:=true;pos:=i;
+                    waktu:=ln(n)/ln(10);
+               end;
+          end;
+          if(ketemu) then
+          begin
+               writeln('nilai ',cari,' ditemukan pada langkahke ',pos);
+               writeln('dengan waktu pencarian ',waktu:10:8,' s');
+          end
+          else
+              write('nilai ',cari,' tidak ditemukan');
+          readln;
+     end
+     else if(pil=3) then
+     begin
+          writeln('semoga bermanfaat');
+     end
+     else
+         writeln('Tidak ada dalam pilihan!');
+     clrscr;
+     until (pil=3);
+     writeln('semoga bermanfaat');
+end.
+
